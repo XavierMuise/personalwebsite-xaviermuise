@@ -1,0 +1,183 @@
+
+@media only screen and (min-width: 840px){
+
+body {
+    background-color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    padding: 10px 16px;
+    background: rgb(29, 29, 29);
+    color: #f1f1f1;
+    height: 110px;
+}
+
+
+#icon {
+    scale: 1.5;
+}
+
+a {
+    color: rgb(87, 146, 165);
+    transition: color .3s ease-in-out;
+    font-size: large;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+.list-item>a:hover {
+    
+    background-color: rgb(87, 146, 165);
+    text-decoration: none;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.list-item {
+    border-radius: 25px;
+    margin: 5%;
+    width: 700px;
+    height: auto;
+    transition: transform .2s; 
+    text-align: center;
+    font-size: larger;
+    
+}
+
+#welcome>img {
+    width: 300px;
+    border-radius: 50%;
+    margin: 2%;
+    transition: transform .2s;
+    
+}
+
+
+img:hover{
+    transform: scale(1.05);
+    
+}
+
+#list {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+Main{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#welcome>h2{
+    text-align: center;
+    margin: 0px;
+    margin-top: 5%;
+}
+
+#welcome{
+    margin-left: 20%;
+    margin-right: 5%;
+    font-size: larger;
+}
+
+.list-item>img{
+    width:30%;
+}
+
+
+
+}
+
+@media only screen and (max-width: 840px){
+    body {
+        background-color: white;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    header {
+        padding: 10px 16px;
+        background: rgb(29, 29, 29);
+        color: #f1f1f1;
+        height: 150px;
+    }
+    
+    
+    #icon {
+        scale: 1.5;
+    }
+    
+    a {
+        color: rgb(87, 146, 165);
+        transition: color .3s ease-in-out;
+        font-size: large;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+    
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    
+    .list-item {
+        border-radius: 25px;
+        margin: auto;
+        width: 300px;
+        height: auto;
+        transition: transform .2s; 
+        text-align: center;
+        font-size: larger;
+        
+        
+    }
+    
+    .list-item:hover {
+        transform: scale(1.05);   
+    }
+    
+    img {
+        width: 100px;
+        border-radius: 50%;
+        margin: 2%;
+        transition: transform .2s;
+        
+    }
+    
+    img:hover{
+        transform: scale(1.05);
+        
+    }
+    
+    #list {
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+    
+    Main{
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+    
+    #welcome>h2{
+        text-align: center;
+        margin: 0px;
+        margin-top: 5%;
+    }
+    
+    #welcome{
+        margin-left: 20%;
+        margin-right: 2%;
+        font-size: larger;
+    }
+}
