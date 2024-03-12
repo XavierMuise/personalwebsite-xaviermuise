@@ -10,14 +10,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xavier's Website</title>
+
+    <!-- For lexend font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-
     <header>
         <h1>Xavier Muise</h1>
-        <nav id="Nav"> 
+        <nav id="Nav">
             <div id="socials">
                 <ion-icon name="logo-linkedin" id="icon"></ion-icon>
                 <a href="https://www.linkedin.com/in/xaviermuise/"> Linkedin </a>
@@ -33,44 +37,46 @@
 
                 <ion-icon name="call-outline" id="icon"></ion-icon>
                 <a href="tel:902-778-1290">(902)778-1290</a>
-                
+
             </div>
         </nav>
     </header>
 
     <main id="Main">
-        <div id="list">
-            <div class="list-item">
-                <h3>Hobbies</h3>
-                <p>I play video games, go to the gym, listen to music, play sports and I code.</p> 
-                
-            </div>  
-            <div class="list-item">
-                <p>check out my spotify playlist!</p>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2KWsm1MAmHfzamH2hcmBZp?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>  
-            <div class="list-item">
-                <h3> Pokémon minigame </h3>
-                <p>Website that uses the pokeapi to generate sprites of any pokemon you like.</p>
-                <a href="Pokegame/pokegame.html">click here!</a>
-            </div>
-        </div> 
-        
-        <div id ="welcome">
-            <h2> Welcome! 👋</h2>
-            <img src="img/XavierMuise.jpg" alt="Picture of me" style="float: left;"> 
-            <p> Im Xavier, a 19 year old from Nova Scotia currently pursuing a degree in computer science at Dalhousie. </p> 
+        <div id="spotify">
+            <p>Check out my spotify playlist!</p>
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/2KWsm1MAmHfzamH2hcmBZp?utm_source=generator&theme=0"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
         </div>
-        
 
-    
-            
+        <div id="welcome">
+            <h2> Welcome! 👋</h2>
+            <img src="img/XavierMuise.jpg" alt="Picture of me" style="float: left;">
+            <p> Im Xavier, a 19 year old from Nova Scotia currently pursuing a degree in computer science at Dalhousie
+                University. </p>
+        </div>
+
     </main>
 
-    <footer> 
-        
+    <h1 id="games_title"> Games and Projects </h1>
+    <div id="Games">
+        <div class="game-box">
+            <h2> Pokémon minigame </h2>
+            <p>Website that uses the pokeapi to generate sprites of any pokemon you like.</p>
+            <a href="Pokegame/pokegame.html">click here!</a>
+            <img src="img/Pikachu.png" alt="Pikachu">
+        </div>
+
+
+
+    </div>
+
+    <footer>
+
     </footer>
 </body>
 
 </html>
-

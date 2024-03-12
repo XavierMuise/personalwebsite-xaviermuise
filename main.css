@@ -1,54 +1,57 @@
-
-@media only screen and (min-width: 840px){
-
 body {
     background-color: white;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Lexend;
 }
 
 header {
+    font-size: 17px;
     padding: 10px 16px;
     background: rgb(29, 29, 29);
     color: #f1f1f1;
     height: 110px;
 }
 
+#socials>* {
+    margin-left: 3px;
+}
 
 #icon {
     scale: 1.5;
 }
 
-a {
+#socials > a {
     color: rgb(87, 146, 165);
     transition: color .3s ease-in-out;
     font-size: large;
     text-decoration: none;
 }
 
-a:hover {
+#socials >a:hover {
     color: white;
     text-decoration: none;
 }
+
 .list-item>a:hover {
-    
     background-color: rgb(87, 146, 165);
     text-decoration: none;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     height: 100%;
 }
 
-.list-item {
+/*Main section */
+#spotify {
     border-radius: 25px;
     margin: 5%;
     width: 700px;
     height: auto;
-    transition: transform .2s; 
+    transition: transform .2s;
     text-align: center;
     font-size: larger;
-    
+
 }
 
 #welcome>img {
@@ -56,13 +59,13 @@ html, body {
     border-radius: 50%;
     margin: 2%;
     transition: transform .2s;
-    
+
 }
 
 
-img:hover{
+#welcome > img:hover {
     transform: scale(1.05);
-    
+
 }
 
 #list {
@@ -70,114 +73,66 @@ img:hover{
     grid-template-rows: auto auto;
 }
 
-Main{
+Main {
     display: grid;
     grid-template-columns: auto auto;
 }
 
-#welcome>h2{
+#welcome>h2 {
     text-align: center;
     margin: 0px;
     margin-top: 5%;
 }
 
-#welcome{
+#welcome {
     margin-left: 20%;
     margin-right: 5%;
     font-size: larger;
 }
 
-.list-item>img{
-    width:30%;
+
+/*Games section */
+#Games {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 10px;
+
 }
 
-
-
+#games_title {
+    text-align: center;
 }
 
-@media only screen and (max-width: 840px){
-    body {
-        background-color: white;
-        font-family:Verdana, Geneva, Tahoma, sans-serif;
-    }
-    
-    header {
-        padding: 10px 16px;
-        background: rgb(29, 29, 29);
-        color: #f1f1f1;
-        height: 150px;
-    }
-    
-    
-    #icon {
-        scale: 1.5;
-    }
-    
-    a {
-        color: rgb(87, 146, 165);
-        transition: color .3s ease-in-out;
-        font-size: large;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: white;
-        text-decoration: none;
-    }
-    
-    html, body {
-        margin: 0;
-        height: 100%;
-    }
-    
-    .list-item {
-        border-radius: 25px;
-        margin: auto;
-        width: 300px;
-        height: auto;
-        transition: transform .2s; 
-        text-align: center;
-        font-size: larger;
-        
-        
-    }
-    
-    .list-item:hover {
-        transform: scale(1.05);   
-    }
-    
-    img {
-        width: 100px;
-        border-radius: 50%;
-        margin: 2%;
-        transition: transform .2s;
-        
-    }
-    
-    img:hover{
-        transform: scale(1.05);
-        
-    }
-    
-    #list {
-        display: grid;
-        grid-template-rows: auto auto;
-    }
-    
-    Main{
-        display: grid;
-        grid-template-rows: auto auto;
-    }
-    
-    #welcome>h2{
-        text-align: center;
-        margin: 0px;
-        margin-top: 5%;
-    }
-    
-    #welcome{
-        margin-left: 20%;
-        margin-right: 2%;
-        font-size: larger;
-    }
+.game-box {
+    text-align: center;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    background-color: aliceblue;
+    transition: transform .2s;
+    border-radius: 20px;
+}
+
+.game-box:hover {
+    transform: scale(1.05);
+}
+
+.game-box>img {
+    width: 50%;
+    aspect-ratio: auto;
+}
+
+.game-box > a {
+    color: rgb(87, 146, 165);
+    transition: color .3s ease-in-out;
+    font-size: large;
+    text-decoration: none;
+}
+
+.game-box >a:hover {
+    color:blue;
+    text-decoration: none;
 }
