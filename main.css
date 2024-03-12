@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
@@ -11,27 +11,27 @@ header {
     height: 110px;
 }
 
-#socials>* {
+#socials > * {
     margin-left: 3px;
 }
 
 #icon {
-    scale: 1.5;
+    transform: scale(1.5);
 }
 
-#socials>a {
+#socials > a {
     color: rgb(87, 146, 165);
     transition: color .3s ease-in-out;
     font-size: large;
     text-decoration: none;
 }
 
-#socials>a:hover {
+#socials > a:hover {
     color: white;
     text-decoration: none;
 }
 
-.list-item>a:hover {
+.list-item > a:hover {
     background-color: rgb(87, 146, 165);
     text-decoration: none;
 }
@@ -42,7 +42,7 @@ body {
     height: 100%;
 }
 
-/*Main section */
+/* Main section */
 #spotify {
     border-radius: 25px;
     margin: 5%;
@@ -51,21 +51,17 @@ body {
     transition: transform .2s;
     text-align: center;
     font-size: larger;
-
 }
 
-#welcome>img {
+#welcome > img {
     width: 300px;
     border-radius: 50%;
     margin: 2%;
     transition: transform .2s;
-
 }
 
-
-#welcome>img:hover {
+#welcome > img:hover {
     transform: scale(1.05);
-
 }
 
 #list {
@@ -73,14 +69,14 @@ body {
     grid-template-rows: auto auto;
 }
 
-Main {
+main {
     display: grid;
     grid-template-columns: auto auto;
 }
 
-#welcome>h2 {
+#welcome > h2 {
     text-align: center;
-    margin: 0px;
+    margin: 0;
     margin-top: 5%;
 }
 
@@ -90,14 +86,12 @@ Main {
     font-size: larger;
 }
 
-
-/*Games section */
+/* Games section */
 #Games {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap: 10px;
-
 }
 
 #games_title {
@@ -120,19 +114,19 @@ Main {
     transform: scale(1.05);
 }
 
-.game-box>img {
+.game-box > img {
     width: 50%;
-    aspect-ratio: auto;
+    object-fit: cover; /* or contain */
 }
 
-.game-box>a {
+.game-box > a {
     color: rgb(87, 146, 165);
     transition: color .3s ease-in-out;
     font-size: large;
     text-decoration: none;
 }
 
-.game-box>a:hover {
+.game-box > a:hover {
     color: blue;
     text-decoration: none;
 }
