@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    font-family: Lexend;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 header {
@@ -19,14 +19,14 @@ header {
     scale: 1.5;
 }
 
-#socials > a {
+#socials>a {
     color: rgb(87, 146, 165);
     transition: color .3s ease-in-out;
     font-size: large;
     text-decoration: none;
 }
 
-#socials >a:hover {
+#socials>a:hover {
     color: white;
     text-decoration: none;
 }
@@ -63,7 +63,7 @@ body {
 }
 
 
-#welcome > img:hover {
+#welcome>img:hover {
     transform: scale(1.05);
 
 }
@@ -125,14 +125,14 @@ Main {
     aspect-ratio: auto;
 }
 
-.game-box > a {
+.game-box>a {
     color: rgb(87, 146, 165);
     transition: color .3s ease-in-out;
     font-size: large;
     text-decoration: none;
 }
 
-.game-box >a:hover {
-    color:blue;
+.game-box>a:hover {
+    color: blue;
     text-decoration: none;
 }
