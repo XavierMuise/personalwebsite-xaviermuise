@@ -1,4 +1,9 @@
-#pokemonImage{
+body {
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 2px;
+}
+
+#pokemonImage {
     width: 200px;
     height: auto;
 }
