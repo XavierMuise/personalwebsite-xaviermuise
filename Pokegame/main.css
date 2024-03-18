@@ -31,6 +31,11 @@ body {
     background-color: #f2f2f2;
 }
 
+.pokemon > button {
+    grid-column: 1 / span 2;
+    background-color: rosybrown;
+}
+
 .pokemon > img {
     width: 100px;
     height: auto;

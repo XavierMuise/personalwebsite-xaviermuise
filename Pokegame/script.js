@@ -106,6 +106,7 @@ addButton.addEventListener("click", () => {
       // Remove the Pokemon div from the DOM
       newPokemonDiv.remove();
       console.log("Removed", latestPokemon.name, "from TeamList");
+      len--;
     });
     newPokemonDiv.appendChild(removeButton);
 
