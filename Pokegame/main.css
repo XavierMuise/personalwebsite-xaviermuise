@@ -18,7 +18,6 @@ body {
     grid-gap: 10px;
 }
 
-
 .pokemon {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -31,12 +30,39 @@ body {
     background-color: #f2f2f2;
 }
 
-.pokemon > button {
+.pokemon>button {
     grid-column: 1 / span 2;
-    background-color: rosybrown;
 }
 
-.pokemon > img {
+.pokemon>img {
     width: 100px;
     height: auto;
+}
+
+button {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    padding: 8px .8em;
+
+    text-align: center;
+}
+
+button:hover {
+    background-color: #0076d1;
+    color: #fff;
+}
+
+#pokemonInput {
+    height: 30px;
+    background-color: #f2f2f2;
+
+
 }

@@ -4,7 +4,10 @@ const pokemonType = document.getElementById("pokemonType");
 const pokemonImage = document.getElementById("pokemonImage");
 const shinyButton = document.getElementById("shinyButton");
 const addButton = document.getElementById("addButton");
+const surpriseButton = document.getElementById("surpriseButton");
+const clearButton = document.getElementById("clearButton");
 
+let currentPokemon = "pikachu";
 let isShiny = false;
 
 let pokemonList = new Array();
@@ -27,6 +30,7 @@ async function getPokemonData(pokemonName) {
     if (!response.ok) {
       throw new Error("Pokémon not found!");
     }
+    currentPokemon = pokemonName;
     const data = await response.json();
 
     const pokedexEntry = data.id;
@@ -48,6 +52,8 @@ async function getPokemonData(pokemonName) {
   }
 }
 
+// buttons 
+
 document.getElementById("searchButton").addEventListener("click", () => {
   const pokemonName = pokemonInput.value.trim();
   if (pokemonName !== "") {
@@ -57,12 +63,37 @@ document.getElementById("searchButton").addEventListener("click", () => {
 
 shinyButton.addEventListener("click", () => {
   isShiny = !isShiny;
-  const pokemonName = pokemonInput.value.trim();
+  const pokemonName = currentPokemon
   if (pokemonName) {
     getPokemonData(pokemonName);
   } else {
     getPokemonData("pikachu");
   }
+});
+
+clearButton.addEventListener("click", () => {
+  const teamsDiv = document.getElementById("Team");
+  teamsDiv.innerHTML = "";
+  TeamList = [];
+  len = 0;
+});
+
+surpriseButton.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * 898) + 1;
+  (async () => {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomIndex}/`);
+      if (!response.ok) {
+        throw new Error("Pokémon not found!");
+      }
+      const data = await response.json();
+      getPokemonData(data.name);
+    } catch (error) {
+      pokemonOutput.textContent = error.message;
+      pokemonType.textContent = '';
+      pokemonImage.src = '';
+    }
+  })();
 });
 
 addButton.addEventListener("click", () => {
@@ -116,6 +147,7 @@ addButton.addEventListener("click", () => {
   } else {
     console.log("No pokemon available in pokemonList");
   }
-
 });
+
+
 
