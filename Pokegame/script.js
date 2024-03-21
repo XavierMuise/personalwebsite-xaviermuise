@@ -30,8 +30,9 @@ async function getPokemonData(pokemonName) {
     if (!response.ok) {
       throw new Error("Pokémon not found!");
     }
-    currentPokemon = pokemonName;
+    
     const data = await response.json();
+    currentPokemon = data.name;
 
     const pokedexEntry = data.id;
     const types = data.types.map((type) => type.type.name);
@@ -39,7 +40,7 @@ async function getPokemonData(pokemonName) {
     if (isShiny) {
       imageUrl = data.sprites.front_shiny;
     }
-    const Newpokemon = new pokemon(pokemonName, imageUrl, types, pokedexEntry);
+    const Newpokemon = new pokemon(currentPokemon, imageUrl, types, pokedexEntry);
     pokemonList.push(Newpokemon);
 
     pokemonOutput.textContent = `Pokedex Entry: #${pokedexEntry}`;
