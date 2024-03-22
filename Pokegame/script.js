@@ -80,7 +80,7 @@ clearButton.addEventListener("click", () => {
 });
 
 surpriseButton.addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random() * 898) + 1;
+  const randomIndex = Math.floor(Math.random() * 1024) + 1;
   (async () => {
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomIndex}/`);
