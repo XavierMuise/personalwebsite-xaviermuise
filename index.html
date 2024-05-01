@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="main.css">
-    <script src="script.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <meta charset="UTF-8">
@@ -16,6 +16,11 @@
 
     <header>
         <h1>Xavier Muise</h1>
+        <label class="switch">
+            <input type="checkbox" id="Colors">
+            <div class="slider"></div>
+            <div class="bg"></div>
+        </label>
         <nav id="Nav">
             <div id="socials">
                 <ion-icon name="logo-linkedin" id="icon"></ion-icon>
@@ -32,9 +37,13 @@
 
                 <ion-icon name="call-outline" id="icon"></ion-icon>
                 <a href="tel:902-778-1290">(902)778-1290</a>
-
+                
+                
             </div>
+
+            
         </nav>
+    
     </header>
 
     <main id="Main">
@@ -73,5 +82,5 @@
 
     </footer>
 </body>
-
+<script src="script.js"></script>
 </html>
