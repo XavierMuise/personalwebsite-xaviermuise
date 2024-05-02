@@ -1,0 +1,43 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif 
+}
+
+#Title {
+
+    text-align: center;
+    font-size: 3em;
+    margin-top: 5%;
+
+}
+#currPlayer {
+    text-align: center;
+}
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    width: 300px;
+    margin: 5% auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: lightblue;  
+}
+
+#reset {
+    display: block;
+    margin: 0 auto;
+    background-color: lightgray;
+    cursor: pointer;
+}
