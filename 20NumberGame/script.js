@@ -64,6 +64,7 @@ function reset(){
     document.getElementById('19').innerHTML = "19:";
     document.getElementById('20').innerHTML = "20:";
     nums = [];
+    canGenerate = true;
 }
 
 
