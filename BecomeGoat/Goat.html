@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Build the Goat </title>
+</head>
+
+<body>
+    <a href="../index.html">Back</a>
+    <h1>Build the Goat</h1>
+    <div >
+        <h2 id="player" >Player : </h2>
+        <button onclick="GeneratePlayer()">Generate Player</button>
+        <h2>Player Attributes</h2>
+            <button onclick="selectAttribute('Shooting')">Shooting</button>
+            <button onclick="selectAttribute('Finishing')">Finishing</button>
+            <button onclick="selectAttribute('Defense')">Defense</button>
+            <button onclick="selectAttribute('Body')">Body</button>
+            <button onclick="selectAttribute('Athleticism')">Athleticism</button>
+            <button onclick="selectAttribute('Rebounding')">Rebounding</button>
+            <button onclick="selectAttribute('Playmaking')">Playmaking</button>
+            <button onclick="selectAttribute('Handles')">Handles</button>
+
+    </div>
+
+    <div>
+        <h2>YourAttributes</h2>
+    <div id="yourAttributes">
+        <h3 id="Shooting">Shooting:</h3>
+        <h3 id="Finishing">Finishing:</h3>
+        <h3 id="Defense">Defense:</h3>
+        <h3 id="Body">Body:</h3>
+        <h3 id="Athleticism">Athleticism:</h3>
+        <h3 id="Rebounding">Rebounding:</h3>
+        <h3 id="Playmaking">Playmaking:</h3>
+        <h3 id="Handles">Handles:</h3>
+    </div>
+
+    <h2 id="GoatRank"> Goat Rank :</h2>
+    <h2 id="Averages"> Averages: </h2>
+    <button onclick="reset()">Reset</button>
+
+    
+</body>
+<script src="script.js"></script>
+
+</html>
