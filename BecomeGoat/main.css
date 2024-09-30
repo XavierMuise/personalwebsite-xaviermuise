@@ -1,0 +1,23 @@
+#title{
+    text-align: center;
+    font-size: 2em;
+    margin-top: 20px;
+}
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    background-color: rgb(40, 40, 40);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    
+}
+
+button:hover {
+   background-color: rgb(60, 60, 60);
+   transform: translateY(-2px);
+}

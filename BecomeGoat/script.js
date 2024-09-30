@@ -1,6 +1,6 @@
 let score = 0;
 let canGenerate = true;
-let canSelect = true;
+let canSelect = false;
 const Player = document.getElementById("player");
 const Rank = document.getElementById("GoatRank");
 const Shooting = document.getElementById("Shooting");
@@ -33,7 +33,7 @@ function player(name, Shooting, Finishing, Defence, Body, Athleticism, Reboundin
 let players = []
 players[0] = new player("LeBron James", 8, 11, 9, 10, 10, 7, 9, 7);
 players[1] = new player("Kevin Durant", 9, 9, 7, 8, 9, 6, 7, 9);
-players[2] = new player("Stephen Curry", 11, 7, 5, 6, 8, 4, 8, 10);
+players[2] = new player("Stephen Curry", 11, 8, 5, 6, 8, 4, 8, 10);
 players[3] = new player("Kawhi Leonard", 7, 8, 10, 9, 8, 8, 6, 7);
 players[4] = new player("Giannis Antetokounmpo", 6, 10, 9, 10, 9, 9, 7, 5);
 players[5] = new player("Anthony Davis", 6, 9, 10, 8, 9, 10, 5, 5);
@@ -64,7 +64,7 @@ players[29] = new player("Kyle Lowry", 8, 7, 8, 5, 6, 5, 8, 8);
 players[30] = new player("Trae Young", 9, 7, 5, 6, 6, 4, 9, 9);
 players[31] = new player("Jamal Murray", 8, 8, 5, 6, 7, 5, 6, 8);
 players[32] = new player("De'Aaron Fox", 7, 8, 5, 6, 8, 4, 7, 8);
-players[33] = new player("Shai Gilgeous-Alexander", 8, 8, 7, 6, 7, 5, 7, 8);
+players[33] = new player("Shai Gilgeous-Alexander", 8, 9, 7, 6, 7, 5, 7, 8);
 
 // retired players
 players[34] = new player("Michael Jordan", 7, 10, 9, 7, 10, 6, 6, 9);
@@ -214,7 +214,7 @@ function selectAttribute(Attribute) {
       } else {
         Rank.textContent = "Goat Rank : 0";
       }
-
+      canSelect = false;
       ppg = (shooting * (handles / 5)) + (finishing * (athleticism / 5)) // max 40
       apg = (playmaking * 3 + handles) / 3
       rpg = (rebounding + ((athleticism + body) / 2)) / 1.4;
