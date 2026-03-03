@@ -169,6 +169,53 @@ input:checked + .slider:before {
     
 }
 
+/* PHONES*/
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px;
+        font-size: 14px;
+    }
 
+    #icon {
+        transform: scale(1.2);
+    }
+
+    #socials > a {
+        font-size: medium;
+    }
+
+    #Games {
+        grid-template-columns: 1fr;
+    }
+
+    .game-box {
+        height: auto;
+        min-height: 300px;
+        margin: 3%;
+    }
+
+    .game-box > img {
+        width: 70%;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    #welcome {
+        font-size: medium;
+    }
+
+    .switch {
+        width: 50px;
+        height: 28px;
+    }
+
+    .slider:before {
+        height: 20px;
+        width: 20px;
+    }
+}
 
 
