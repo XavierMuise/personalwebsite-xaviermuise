@@ -10,145 +10,127 @@ const clearButton = document.getElementById("clearButton");
 let currentPokemon = "pikachu";
 let isShiny = false;
 
-let pokemonList = new Array();
+let pokemonList = [];
 let TeamList = new Array(6);
 let len = 0;
-
 
 getPokemonData("pikachu");
 
 function pokemon(name, spriteUrl, types, pokedexEntry) {
-  this.name = name;
-  this.spriteUrl = spriteUrl;
-  this.types = types;
-  this.pokedexEntry = pokedexEntry;
-};
-
-async function getPokemonData(pokemonName) {
-  try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
-    if (!response.ok) {
-      throw new Error("Pokémon not found!");
-    }
-    
-    const data = await response.json();
-    currentPokemon = data.name;
-
-    const pokedexEntry = data.id;
-    const types = data.types.map((type) => type.type.name);
-    let imageUrl = data.sprites.front_default;
-    if (isShiny) {
-      imageUrl = data.sprites.front_shiny;
-    }
-    const Newpokemon = new pokemon(currentPokemon, imageUrl, types, pokedexEntry);
-    pokemonList.push(Newpokemon);
-
-    pokemonOutput.textContent = `Pokedex Entry: #${pokedexEntry}`;
-    pokemonType.textContent = `Type: ${types.join(', ')}`;
-    pokemonImage.src = imageUrl;
-  } catch (error) {
-    pokemonOutput.textContent = error.message;
-    pokemonType.textContent = '';
-    pokemonImage.src = '';
-  }
+    this.name = name;
+    this.spriteUrl = spriteUrl;
+    this.types = types;
+    this.pokedexEntry = pokedexEntry;
 }
 
-// buttons 
+function updateTeamCount() {
+    const label = document.getElementById("teamCount");
+    if (label) label.textContent = `${len} / 6 Pokémon`;
+}
+
+async function getPokemonData(pokemonName) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
+        if (!response.ok) throw new Error("Pokémon not found!");
+
+        const data = await response.json();
+        currentPokemon = data.name;
+
+        const pokedexEntry = data.id;
+        const types = data.types.map((t) => t.type.name);
+        let imageUrl = isShiny ? data.sprites.front_shiny : data.sprites.front_default;
+
+        const newPokemon = new pokemon(currentPokemon, imageUrl, types, pokedexEntry);
+        pokemonList.push(newPokemon);
+
+        pokemonOutput.textContent = `#${String(pokedexEntry).padStart(3, '0')} ${currentPokemon.toUpperCase()}`;
+        pokemonType.textContent = `Type: ${types.join(' / ')}`;
+        pokemonImage.src = imageUrl;
+    } catch (error) {
+        pokemonOutput.textContent = error.message;
+        pokemonType.textContent = '';
+        pokemonImage.src = '';
+    }
+}
 
 document.getElementById("searchButton").addEventListener("click", () => {
-  const pokemonName = pokemonInput.value.trim();
-  if (pokemonName !== "") {
-    getPokemonData(pokemonName);
-  }
+    const name = pokemonInput.value.trim();
+    if (name) getPokemonData(name);
+});
+
+pokemonInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        const name = pokemonInput.value.trim();
+        if (name) getPokemonData(name);
+    }
 });
 
 shinyButton.addEventListener("click", () => {
-  isShiny = !isShiny;
-  const pokemonName = currentPokemon
-  if (pokemonName) {
-    getPokemonData(pokemonName);
-  } else {
-    getPokemonData("pikachu");
-  }
+    isShiny = !isShiny;
+    getPokemonData(currentPokemon || "pikachu");
 });
 
 clearButton.addEventListener("click", () => {
-  const teamsDiv = document.getElementById("Team");
-  teamsDiv.innerHTML = "";
-  TeamList = [];
-  len = 0;
+    document.getElementById("Team").innerHTML = "";
+    TeamList = [];
+    len = 0;
+    updateTeamCount();
 });
 
 surpriseButton.addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random() * 1024) + 1;
-  (async () => {
-    try {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomIndex}/`);
-      if (!response.ok) {
-        throw new Error("Pokémon not found!");
-      }
-      const data = await response.json();
-      getPokemonData(data.name);
-    } catch (error) {
-      pokemonOutput.textContent = error.message;
-      pokemonType.textContent = '';
-      pokemonImage.src = '';
-    }
-  })();
+    const randomIndex = Math.floor(Math.random() * 1024) + 1;
+    (async () => {
+        try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomIndex}/`);
+            if (!response.ok) throw new Error("Pokémon not found!");
+            const data = await response.json();
+            getPokemonData(data.name);
+        } catch (error) {
+            pokemonOutput.textContent = error.message;
+            pokemonType.textContent = '';
+            pokemonImage.src = '';
+        }
+    })();
 });
 
 addButton.addEventListener("click", () => {
+    if (len >= 6) return;
+    if (!pokemonList.length) return;
 
-  if (len == 6) {
-    console.log("Team is full");
-    return;
-  }
-
-  if (pokemonList.length > 0) {
-    const latestPokemon = pokemonList[pokemonList.length - 1];
-    TeamList.push(latestPokemon);
-    console.log("Added", latestPokemon.name, "to TeamList");
+    const latest = pokemonList[pokemonList.length - 1];
+    TeamList.push(latest);
     len++;
-    // Create a new div element for the Pokemon
-    const newPokemonDiv = document.createElement("div");
-    newPokemonDiv.classList.add("pokemon");
+    updateTeamCount();
 
-    // Populate the div with the Pokemon's attributes
-    const nameParagraph = document.createElement("p");
-    nameParagraph.textContent = `Name: ${latestPokemon.name}`;
-    newPokemonDiv.appendChild(nameParagraph);
+    // Determine primary type class for card colour
+    const primaryType = latest.types[0] || 'normal';
+    const typeClass = `type-${primaryType}`;
 
-    const pokedexParagraph = document.createElement("p");
-    pokedexParagraph.textContent = `Pokedex Entry: #${latestPokemon.pokedexEntry}`;
-    newPokemonDiv.appendChild(pokedexParagraph);
+    const card = document.createElement("div");
+    card.classList.add("pokemon", typeClass);
 
-    const typesParagraph = document.createElement("p");
-    typesParagraph.textContent = `Type: ${latestPokemon.types.join(", ")}`;
-    newPokemonDiv.appendChild(typesParagraph);
+    const name = document.createElement("p");
+    name.textContent = `#${String(latest.pokedexEntry).padStart(3,'0')} ${latest.name.toUpperCase()}`;
+    card.appendChild(name);
 
-    const spriteImage = document.createElement("img");
-    spriteImage.src = latestPokemon.spriteUrl;
-    newPokemonDiv.appendChild(spriteImage);
+    const types = document.createElement("p");
+    types.textContent = latest.types.join(' / ');
+    card.appendChild(types);
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      // Remove the Pokemon from TeamList
-      TeamList = TeamList.filter(pokemon => pokemon.name !== latestPokemon.name);
-      // Remove the Pokemon div from the DOM
-      newPokemonDiv.remove();
-      console.log("Removed", latestPokemon.name, "from TeamList");
-      len--;
+    const img = document.createElement("img");
+    img.src = latest.spriteUrl;
+    img.alt = latest.name;
+    card.appendChild(img);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", () => {
+        TeamList = TeamList.filter(p => p !== latest);
+        card.remove();
+        len--;
+        updateTeamCount();
     });
-    newPokemonDiv.appendChild(removeButton);
+    card.appendChild(removeBtn);
 
-    // Append the new div to the "teams" div
-    const teamsDiv = document.getElementById("Team");
-    teamsDiv.appendChild(newPokemonDiv);
-  } else {
-    console.log("No pokemon available in pokemonList");
-  }
+    document.getElementById("Team").appendChild(card);
 });
-
-
-

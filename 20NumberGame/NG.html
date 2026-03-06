@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20 Number Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <a href="../index.html">Back</a>
-    <div class="container">
-        <h1>20 Number Challenge</h1>
-        <div class="grid">
-            <p class="number" id="1" onclick="placeNum(1)">1:</p>
-            <p class="number" id="2" onclick="placeNum(2)">2:</p>
-            <p class="number" id="3" onclick="placeNum(3)">3:</p>
-            <p class="number" id="4" onclick="placeNum(4)">4:</p>
-            <p class="number" id="5" onclick="placeNum(5)">5:</p>
-            <p class="number" id="6" onclick="placeNum(6)">6:</p>
-            <p class="number" id="7" onclick="placeNum(7)">7:</p>
-            <p class="number" id="8" onclick="placeNum(8)">8:</p>
-            <p class="number" id="9" onclick="placeNum(9)">9:</p>
-            <p class="number" id="10" onclick="placeNum(10)">10:</p>
-            <p class="number" id="11" onclick="placeNum(11)">11:</p>
-            <p class="number" id="12" onclick="placeNum(12)">12:</p>
-            <p class="number" id="13" onclick="placeNum(13)">13:</p>
-            <p class="number" id="14" onclick="placeNum(14)">14:</p>
-            <p class="number" id="15" onclick="placeNum(15)">15:</p>
-            <p class="number" id="16" onclick="placeNum(16)">16:</p>
-            <p class="number" id="17" onclick="placeNum(17)">17:</p>
-            <p class="number" id="18" onclick="placeNum(18)">18:</p>
-            <p class="number" id="19" onclick="placeNum(19)">19:</p>
-            <p class="number" id="20" onclick="placeNum(20)">20:</p>
+
+    <div class="page">
+
+        <!-- LEFT: Number grid -->
+        <div class="panel panel-grid">
+            <a href="../index.html" class="back-link">← Back</a>
+            <h1 class="title">20 Number<br>Challenge</h1>
+            <div class="grid">
+                <p class="number" id="1"  onclick="placeNum(1)"><span class="slot-label">1</span><span class="slot-val"></span></p>
+                <p class="number" id="2"  onclick="placeNum(2)"><span class="slot-label">2</span><span class="slot-val"></span></p>
+                <p class="number" id="3"  onclick="placeNum(3)"><span class="slot-label">3</span><span class="slot-val"></span></p>
+                <p class="number" id="4"  onclick="placeNum(4)"><span class="slot-label">4</span><span class="slot-val"></span></p>
+                <p class="number" id="5"  onclick="placeNum(5)"><span class="slot-label">5</span><span class="slot-val"></span></p>
+                <p class="number" id="6"  onclick="placeNum(6)"><span class="slot-label">6</span><span class="slot-val"></span></p>
+                <p class="number" id="7"  onclick="placeNum(7)"><span class="slot-label">7</span><span class="slot-val"></span></p>
+                <p class="number" id="8"  onclick="placeNum(8)"><span class="slot-label">8</span><span class="slot-val"></span></p>
+                <p class="number" id="9"  onclick="placeNum(9)"><span class="slot-label">9</span><span class="slot-val"></span></p>
+                <p class="number" id="10" onclick="placeNum(10)"><span class="slot-label">10</span><span class="slot-val"></span></p>
+                <p class="number" id="11" onclick="placeNum(11)"><span class="slot-label">11</span><span class="slot-val"></span></p>
+                <p class="number" id="12" onclick="placeNum(12)"><span class="slot-label">12</span><span class="slot-val"></span></p>
+                <p class="number" id="13" onclick="placeNum(13)"><span class="slot-label">13</span><span class="slot-val"></span></p>
+                <p class="number" id="14" onclick="placeNum(14)"><span class="slot-label">14</span><span class="slot-val"></span></p>
+                <p class="number" id="15" onclick="placeNum(15)"><span class="slot-label">15</span><span class="slot-val"></span></p>
+                <p class="number" id="16" onclick="placeNum(16)"><span class="slot-label">16</span><span class="slot-val"></span></p>
+                <p class="number" id="17" onclick="placeNum(17)"><span class="slot-label">17</span><span class="slot-val"></span></p>
+                <p class="number" id="18" onclick="placeNum(18)"><span class="slot-label">18</span><span class="slot-val"></span></p>
+                <p class="number" id="19" onclick="placeNum(19)"><span class="slot-label">19</span><span class="slot-val"></span></p>
+                <p class="number" id="20" onclick="placeNum(20)"><span class="slot-label">20</span><span class="slot-val"></span></p>
+            </div>
         </div>
-    </div>
-    <div class="container">
-        <button id="reset" onclick="reset()">Reset</button>
+
+        <!-- RIGHT: Controls -->
+        <div class="panel panel-controls">
+            <div class="display-wrap">
+                <div class="display-label">Current Number</div>
+                <div class="display" id="randNum">—</div>
+            </div>
+
+            <div class="hint">Press <kbd>Enter</kbd> or click Start to generate</div>
+
+            <div class="btn-group">
+                <button id="start" onclick="generateNum()" class="btn-primary">▶ Start / Next</button>
+                <button id="reset" onclick="reset()" class="btn-reset">↺ Reset</button>
+            </div>
+
+            <div class="score-wrap">
+                <div class="score-item">
+                    <span class="score-label">Placed</span>
+                    <span class="score-val" id="placedCount">0</span>
+                </div>
+                <div class="score-divider"></div>
+                <div class="score-item">
+                    <span class="score-label">Remaining</span>
+                    <span class="score-val" id="remainCount">20</span>
+                </div>
+            </div>
+
+            <div class="rules">
+                <p class="rules-title">How to play</p>
+                <p>Generate a random number (1–999) and place it in a slot. Numbers in the slots must be in ascending order from top to bottom. Place all 20 to win!</p>
+            </div>
+        </div>
+
     </div>
 
-    <div>
-        <h1 id="randNum" >-1</h1>
-        <button id="start" onclick="generateNum()">Start</button>
-        <p> Click Enter to generate a new number</p>
-    </div>
-
-    
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
-
 </html>

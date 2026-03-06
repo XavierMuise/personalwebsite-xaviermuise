@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build the Goat</title>
+    <title>Build the Best</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,12 +15,15 @@
         <div class="col col-left">
             <header>
                 <a href="../index.html" class="back-link">← Back</a>
-                <h1 class="title">Build the <span class="accent">GOAT</span></h1>
-                <p class="subtitle">Draft attributes from random NBA players to build the greatest of all time</p>
+                <h1 class="title">Build the <span class="accent">BEST</span></h1>
+                <p class="subtitle">Draft attributes from NHL players to build the ultimate hockey player</p>
             </header>
 
             <div class="player-card">
-                <span class="player-label">Current Player</span>
+                <div class="player-meta">
+                    <span class="player-label">Current Player</span>
+                    <span class="position-badge" id="positionBadge">—</span>
+                </div>
                 <span class="player-name" id="player">—</span>
             </div>
 
@@ -29,25 +32,25 @@
             <div class="col-section">
                 <p class="section-label">Choose an attribute to take</p>
                 <div class="attr-buttons">
+                    <button class="attr-btn" onclick="selectAttribute('Skating')">Skating</button>
                     <button class="attr-btn" onclick="selectAttribute('Shooting')">Shooting</button>
-                    <button class="attr-btn" onclick="selectAttribute('Finishing')">Finishing</button>
-                    <button class="attr-btn" onclick="selectAttribute('Defense')">Defense</button>
-                    <button class="attr-btn" onclick="selectAttribute('Body')">Body</button>
-                    <button class="attr-btn" onclick="selectAttribute('Athleticism')">Athleticism</button>
-                    <button class="attr-btn" onclick="selectAttribute('Rebounding')">Rebounding</button>
                     <button class="attr-btn" onclick="selectAttribute('Playmaking')">Playmaking</button>
-                    <button class="attr-btn" onclick="selectAttribute('Handles')">Handles</button>
+                    <button class="attr-btn" onclick="selectAttribute('Deking')">Deking</button>
+                    <button class="attr-btn" onclick="selectAttribute('Strength')">Strength</button>
+                    <button class="attr-btn" onclick="selectAttribute('Defence')">Defence</button>
+                    <button class="attr-btn" onclick="selectAttribute('BodyChecking')">Body Checking</button>
+                    <button class="attr-btn" onclick="selectAttribute('Position')">Position</button>
                 </div>
             </div>
 
             <div class="results-row">
                 <div class="result-card">
-                    <span class="result-label">GOAT Rank</span>
-                    <span class="result-big" id="GoatRank">—</span>
+                    <span class="result-label">Overall</span>
+                    <span class="result-big" id="Overall">—</span>
                 </div>
                 <div class="result-card">
                     <span class="result-label">Stat Line</span>
-                    <span class="result-stats" id="Averages">PPG &nbsp; RPG &nbsp; APG</span>
+                    <span class="result-stats" id="StatLine">G &nbsp; A &nbsp; +/- &nbsp; H &nbsp; BLK &nbsp; SOG</span>
                 </div>
             </div>
 
@@ -58,36 +61,36 @@
         <div class="col col-right">
             <p class="section-label">Your Build</p>
             <div class="build-grid">
+                <div class="build-row" id="Skating">
+                    <span class="build-attr">Skating</span>
+                    <span class="build-val">—</span>
+                </div>
                 <div class="build-row" id="Shooting">
                     <span class="build-attr">Shooting</span>
-                    <span class="build-val">—</span>
-                </div>
-                <div class="build-row" id="Finishing">
-                    <span class="build-attr">Finishing</span>
-                    <span class="build-val">—</span>
-                </div>
-                <div class="build-row" id="Defense">
-                    <span class="build-attr">Defense</span>
-                    <span class="build-val">—</span>
-                </div>
-                <div class="build-row" id="Body">
-                    <span class="build-attr">Body</span>
-                    <span class="build-val">—</span>
-                </div>
-                <div class="build-row" id="Athleticism">
-                    <span class="build-attr">Athleticism</span>
-                    <span class="build-val">—</span>
-                </div>
-                <div class="build-row" id="Rebounding">
-                    <span class="build-attr">Rebounding</span>
                     <span class="build-val">—</span>
                 </div>
                 <div class="build-row" id="Playmaking">
                     <span class="build-attr">Playmaking</span>
                     <span class="build-val">—</span>
                 </div>
-                <div class="build-row" id="Handles">
-                    <span class="build-attr">Handles</span>
+                <div class="build-row" id="Deking">
+                    <span class="build-attr">Deking</span>
+                    <span class="build-val">—</span>
+                </div>
+                <div class="build-row" id="Strength">
+                    <span class="build-attr">Strength</span>
+                    <span class="build-val">—</span>
+                </div>
+                <div class="build-row" id="Defence">
+                    <span class="build-attr">Defence</span>
+                    <span class="build-val">—</span>
+                </div>
+                <div class="build-row" id="BodyChecking">
+                    <span class="build-attr">Body Checking</span>
+                    <span class="build-val">—</span>
+                </div>
+                <div class="build-row" id="Position">
+                    <span class="build-attr">Position</span>
                     <span class="build-val">—</span>
                 </div>
             </div>

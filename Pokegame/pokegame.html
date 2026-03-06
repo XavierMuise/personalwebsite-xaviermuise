@@ -7,34 +7,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pokémon Team</title>
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="search">
-        <a href="../index.html">Back</a>
-        <h1 id="Title">My Pokémon Team</h1>
-        <div>
-            <label for="pokemonInput">Enter Pokémon Name:</label>
-            <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
-            <button id="searchButton">Search</button>
-        </div>
-        <div>
-            <p id="pokemonOutput"></p>
-            <p id="pokemonType"></p>
-            <img id="pokemonImage" alt="Pokémon Image" src="">
+    <a href="../index.html" class="back-link">← Back</a>
+
+    <div class="pokedex-shell">
+
+        <!-- Top lights bar -->
+        <div class="dex-lights">
+            <div class="dex-light-big"></div>
+            <div class="dex-light-sm red"></div>
+            <div class="dex-light-sm yellow"></div>
+            <div class="dex-light-sm green"></div>
+            <div class="dex-divider"></div>
         </div>
 
-        <button id="shinyButton">Shiny</button>
-        <button id="addButton">Add to Team</button>
-        <button id="surpriseButton">Surprise me!</button>
-        <button id="clearButton">Clear Team</button>
-        <p>This uses the pokeapi!</p>
-        <a href="https://pokeapi.co"> check them out!</a>
+        <!-- Two-column layout -->
+        <div class="dex-body">
+
+            <!-- LEFT: Search & Preview -->
+            <div class="dex-left" id="search">
+
+                <!-- Screen -->
+                <div class="dex-screen-wrap">
+                    <div class="dex-screen">
+                        <span class="screen-label">Pokédex v2.0</span>
+                        <img id="pokemonImage" alt="Pokémon Image" src="">
+                        <div class="dex-info">
+                            <p id="pokemonOutput"></p>
+                            <p id="pokemonType"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search row -->
+                <div class="search-row">
+                    <input type="text" id="pokemonInput" placeholder="Name or number...">
+                    <button id="searchButton">GO</button>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="dex-buttons">
+                    <button id="shinyButton">✨ Shiny</button>
+                    <button id="addButton">➕ Add</button>
+                    <button id="surpriseButton">🎲 Surprise!</button>
+                    <button id="clearButton">🗑 Clear</button>
+                </div>
+
+                <div class="dex-credit">
+                    Powered by <a href="https://pokeapi.co" target="_blank">PokéAPI</a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Team -->
+            <div class="dex-right">
+                <div class="team-header">My Team</div>
+                <div class="team-slots-label" id="teamCount">0 / 6 Pokémon</div>
+                <div id="Team"></div>
+            </div>
+        </div>
+
+        <!-- Bottom decorative bar -->
+        <div class="dex-bottom">
+            <div class="dex-dpad">
+                <div class="dpad-btn"></div><div class="dpad-btn"></div><div class="dpad-btn"></div>
+                <div class="dpad-btn"></div><div class="dpad-btn center"></div><div class="dpad-btn"></div>
+                <div class="dpad-btn"></div><div class="dpad-btn"></div><div class="dpad-btn"></div>
+            </div>
+            <div class="dex-select-start">
+                <div class="ss-btn"></div>
+                <div class="ss-btn"></div>
+            </div>
+            <div class="dex-action-btns">
+                <div class="ab-btn b">B</div>
+                <div class="ab-btn a">A</div>
+            </div>
+        </div>
 
     </div>
-    <div id="Team">
-    </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
-
 </html>
